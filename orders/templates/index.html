@@ -2,8 +2,20 @@
 {% load bootstrap4 %}
 {% block content %}
 <div class="container">
-    {% for item in items %}
-    
-    {% endfor %}
+
+    <div class="row">
+        {% for item in item_list %}
+        <div class="col-md-4">
+            <div class="card">
+                <img class="card-img-top" src="{{item.item_image.url}}" alt="Card image cap">
+                <div class="card-body">
+                  <h5 class="card-title">{{item.item_name}}</h5>
+                  <p class="card-text">Quantity= {{item.item_qty}}.</p>
+                  <a href="{% url 'selling' item.id %}" class="btn btn-primary">Sell</a>
+                </div>
+              </div>
+        </div>
+        {% endfor %}
+    </div>
 </div>
-{% end block %}
+{% endblock %}

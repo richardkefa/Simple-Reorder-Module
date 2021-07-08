@@ -1,5 +1,6 @@
 from django.db import models
 class Items(models.Model):
+    item_image = models.ImageField(null=True)
     item_name = models.CharField(max_length=100)
     item_qty = models.IntegerField(default=0)
     item_entry_date = models.DateTimeField(auto_now_add=True)
@@ -13,12 +14,11 @@ class Items(models.Model):
 
 class Order(models.Model):
     item_name = models.ForeignKey(Items,on_delete=models.CASCADE)
-    order_no = models.IntegerField(auto_created=True)
     Date_of_order = models.DateTimeField(auto_now_add=True)
     dispached = models.BooleanField(default=False)
 
     def __str__(self):
-        return self.order_no
+        return str(self.id)
 
-    def save_item(self):
+    def save_order(self):
         return self.save()

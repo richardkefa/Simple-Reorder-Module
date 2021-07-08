@@ -10,15 +10,28 @@
     <title>Reorder</title>
     {% block styles %}
         {% bootstrap_css %}
-    {% endblock %}
+        <link rel="stylesheet" href="{% static 'css/index.css' %}">
+        {% endblock %}
 </head>
 <body>
-
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <nav>
+                    <h3>KEFIS</h3>
+                    <ul>
+                        <li><a href="{% url 'items' %}">Sales</a></li>
+                        <li><a href="{% url 'order_list' %}">Wearhouse</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
     {% block content %} 
     {%endblock%}
     {% block scripts %}
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
      {% bootstrap_javascript %}
     {% endblock %}
+    </div>
 </body>
 </html>

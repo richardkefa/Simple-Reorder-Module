@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load bootstrap4 %}
+{% block content %}
+<div class="container">
+    <!-- {% for order in orders %} -->
+
+    <div class="row">
+        {% for pending_order in pending_orders %}
+        <div class="col-md-6">
+            {% if pending_order %}
+            <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title">{{pending_order.item_name}}</h5>
+                  <p class="card-text">Order NO.= {{pending_order.id}} 
+                      <br> Order Date: {{pending_order.Date_of_order|date:"Y-m-d" }}
+                  </p>
+                  <a href="#" class="btn btn-primary">Dispatch</a>
+                </div>
+              </div>
+              {% else %}
+              <h3> NO pending orders available</h3>
+              {% endif %}
+        </div>
+        {% endfor %}
+
+
+        <!-- <div class="col-md-6" style="border: solid black 1px;">
+        </div> -->
+    </div>
+    <!-- {% endfor %} -->
+</div>
+{% endblock %}

@@ -1,0 +1,49 @@
+.container{
+    background-color:whitesmoke;
+    overflow-x: hidden;
+    box-shadow: grey 2px ;
+    padding-bottom: 7vh;
+}
+nav{
+    display:flex;
+    flex-direction:row;
+    justify-content:space-around;
+    align-items:center;
+    padding: 5px;
+    background-color:rgb(140, 214, 214);
+    margin-bottom: 5vh;
+}
+
+nav>ul {
+    list-style-type:none;
+}
+nav>ul>li{
+    display: inline-block;
+    padding: 5px;
+    font-size:larger;
+}
+
+nav ul li a {
+    color:black;
+    border: black 2px solid;
+    padding: 5px;
+}
+
+nav ul li a:hover{
+    color:white;
+    background-color:black;
+    text-decoration: none;
+}
+
+h3{
+    color:white;
+    padding: 7px;
+    border:2.5px solid white;
+}
+
+.card{
+    margin-bottom: 3vh;  
+    text-align: center;
+    background-color:rgb(140, 214, 214);  
+}
+
