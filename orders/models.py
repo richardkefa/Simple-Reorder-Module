@@ -19,3 +19,6 @@ class Order(models.Model):
 
     def __str__(self):
         return self.order_no
+
+    def save_item(self):
+        return self.save()
