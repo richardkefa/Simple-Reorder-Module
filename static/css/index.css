@@ -47,8 +47,5 @@ h3{
     background-color:rgb(140, 214, 214);  
 }
 
-.orders {
-    display:flex;
-    flex-direction:column;
-}
+
 

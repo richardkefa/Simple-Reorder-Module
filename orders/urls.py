@@ -6,7 +6,8 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('',views.items_lIst,name='items'),
     path('<int:id>/selling',views.sell_item,name='selling'),
-    path('order_list',views.order_list,name='order_list')
+    path('order_list',views.order_list,name='order_list'),
+    path('<int:id>/dispatch',views.dispatch_order,name='dispatch')
 ]
 
 if settings.DEBUG:

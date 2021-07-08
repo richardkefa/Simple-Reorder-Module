@@ -4,7 +4,7 @@
 <div class="container-fluid">
     <div class="row ">
         <div class="col-md-6">
-            <h2>Pending Orders</h2>
+            <h2 style="text-align:center;text-decoration:underline 2px;">Pending Orders</h2>
             <div class="row">
                 {% for pending_order in pending_orders %}
         <div class="col-md-6 order">
@@ -15,7 +15,7 @@
                   <p class="card-text">Order NO.= {{pending_order.id}} 
                       <br> Order Date: {{pending_order.Date_of_order|date:"Y-m-d" }}
                   </p>
-                  <a href="#" class="btn btn-primary">Dispatch</a>
+                  <a href="{% url 'dispatch' pending_order.id %}" class="btn btn-primary">Dispatch</a>
                 </div>
               </div>
               {% else %}
@@ -26,11 +26,11 @@
             </div>
         </div>
         <div class="col-md-6">
-            <h2>dispatched Orders</h2>
+            <h2 style="text-align:center;text-decoration:underline 2px;">Dispatched Orders</h2>
 
             <div class="row">
                 {% for dispached_order in dispached_orders %}
-        <div class="col-md-6 order" style="border: solid black 1px;">
+        <div class="col-md-6 order">
             {% if dispached_order %}
             <div class="card">
                 <div class="card-body">

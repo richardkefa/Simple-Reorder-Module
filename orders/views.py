@@ -8,9 +8,9 @@ def items_lIst(request):
     }
     return render(request,'index.html',context)
 
-def send_order(item_name):
-    item = Items.objects.get(item_name=item_name)
-    order = Order.objects.create(item_name=item)
+def send_order(id):
+    item = Items.objects.get(id=id)
+    order = Order.objects.create(Item_id=item)
     return redirect('items')
 
 def order_list(request):
@@ -30,7 +30,6 @@ def order_list(request):
 
 def sell_item(request,id):
     item = Items.objects.get(id=id)
-    item_name = item.item_name
     quantity = item.item_qty
     new_quantity = quantity-1
     if new_quantity == 0:
@@ -40,7 +39,7 @@ def sell_item(request,id):
     item.save(update_fields=["item_qty"])
 
     if new_quantity <= 3:
-        send_order(item_name)
+        send_order(id)
        
         return redirect('items')
 
@@ -48,16 +47,17 @@ def sell_item(request,id):
     return redirect('items')
 
 
-def dispatch_order(id):
+def dispatch_order(request,id):
 
-    pending_order = Order.objects.filter(id)
-    item_name = pending_order.item_name
-    item = Items.objects.get(item_name=item_name)
+    pending_order = Order.objects.get(id=id)
+    # import pdb;pdb.set_trace();
+    item = pending_order.Item_id
+    item = Items.objects.get(item_name=item)
     item.item_qty = 10
-    item.save(update_fields=("item_qyt"))
+    item.save(update_fields=["item_qty"])
     pending_order.dispached = True
-    pending_order.save(update_fields=('dispached'))
+    pending_order.save(update_fields=['dispached'])
 
 
-    return redirect('item_list')
+    return redirect('order_list')
 

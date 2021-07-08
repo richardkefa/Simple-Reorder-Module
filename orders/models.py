@@ -13,7 +13,7 @@ class Items(models.Model):
 
 
 class Order(models.Model):
-    item_name = models.ForeignKey(Items,on_delete=models.CASCADE)
+    Item_id = models.ForeignKey(Items,on_delete=models.CASCADE)
     Date_of_order = models.DateTimeField(auto_now_add=True)
     dispached = models.BooleanField(default=False)
 
