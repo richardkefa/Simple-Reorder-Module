@@ -1,12 +1,13 @@
 {% extends 'base.html' %}
 {% load bootstrap4 %}
 {% block content %}
-<div class="container">
-    <!-- {% for order in orders %} -->
-
-    <div class="row">
-        {% for pending_order in pending_orders %}
+<div class="container-fluid">
+    <div class="row ">
         <div class="col-md-6">
+            <h2>Pending Orders</h2>
+            <div class="row">
+                {% for pending_order in pending_orders %}
+        <div class="col-md-6 order">
             {% if pending_order %}
             <div class="card">
                 <div class="card-body">
@@ -22,11 +23,31 @@
               {% endif %}
         </div>
         {% endfor %}
+            </div>
+        </div>
+        <div class="col-md-6">
+            <h2>dispatched Orders</h2>
 
-
-        <!-- <div class="col-md-6" style="border: solid black 1px;">
-        </div> -->
+            <div class="row">
+                {% for dispached_order in dispached_orders %}
+        <div class="col-md-6 order" style="border: solid black 1px;">
+            {% if dispached_order %}
+            <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title">{{dispached_order.item_name}}</h5>
+                  <p class="card-text">Order NO.= {{dispached_order.id}} 
+                      <br> Order Date: {{dispached_order.Date_of_order|date:"Y-m-d" }}
+                  </p>
+                  <a href="#" class="btn btn-inactive">Dispatch</a>
+                </div>
+              </div>
+              {% else %}
+              <h3> NO dispatched orders available</h3>
+              {% endif %}
+        </div>
+        {% endfor %}
+            </div>
+        </div>
     </div>
-    <!-- {% endfor %} -->
 </div>
 {% endblock %}
